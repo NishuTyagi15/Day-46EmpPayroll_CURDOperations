@@ -53,5 +53,6 @@ const getDeptHtml = (deptList) => {
 const remove = (node) => {
     empPayrollList.splice(parseInt(node.id), 1);
     localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
 }
