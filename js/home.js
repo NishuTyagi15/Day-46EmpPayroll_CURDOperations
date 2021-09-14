@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     empPayrollList = getEmployeePayrollDataFromStorage();
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 
 const getEmployeePayrollDataFromStorage = () => {
@@ -29,7 +30,7 @@ const createInnerHtml = () => {
                 <img id="${empPayrollData._id}" onclick="remove(this)"
                     src="/assets/icons/delete-black-18dp.svg"
                     alt="delete">
-                <img id="${empPayrollData._id} onclick="update(this)"
+                <img id="${empPayrollData._id}" onclick="update(this)"
                     src="/assets/icons/create-black-18dp.svg" alt="edit">
             </td>
         </tr>
