@@ -20,6 +20,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     salary.addEventListener('input',function(){
     output.textContent = salary.value;
     });
+
+    const date = document.querySelector('#year');
+    const dateError = document.querySelector('.date-error');
+    date.addEventListener('input', function() {
+        const startDate = new Date(getInputValueById('#day')+" "+
+                                            getInputValueById('#month')+" "+
+                                            getInputValueById('#year'));
+        try {
+            (new EmployeePayrollData()).startDate = startDate;
+            dateError.textContent = "";
+        } catch (e) {
+            dateError.textContent = e;
+
+        }
+    });
 });
 
 //submit
@@ -101,3 +116,39 @@ const unsetSelectedValues = (propertyValue) => {
         item.checked = false;
     })
 }
+
+// const checkForUpdate = () => {
+//     const employeePayrollJSON = localStorage.getItem('editEmp');
+//     isUpdate = employeePayrollJSON ? true : false;
+//     if (!isUpdate) return;
+//     employeePayrollObj = JSON.parse(employeePayrollJSON);
+//     setForm();
+// }
+
+// const setForm = () => {
+//     setValue('#name', employeePayrollObj._name);
+//     setSelectedValues('[name=profile]', employeePayrollObj._profilePic);
+//     unsetSelectedValues('[name=gender]', employeePayrollObj._gender);
+//     unsetSelectedValues('[name=department]', employeePayrollObj._department);
+//     setValue('#salary', employeePayrollObj._salary);
+//     // setTextValues('.salary-output', employeePayrollObj._salary);
+//     setValue('#notes', employeePayrollObj._note);
+//     let date = stringifyDate(employeePayrollObj._startDate).split(" ");
+//     setValue('#day', '1');
+//     setValue('#month', 'January');
+//     setValue('#year', '2021');
+// }
+
+// const setSelectedValues = (propertyValue, value) => {
+//     let allItems = document.querySelectorAll(propertyValue);
+//     allItems.forEach(item => {
+//         if(Array.isArray(value)) {
+//             if(value.includes(item.value)) {
+//                 item.checked = true;
+//             }
+//         }
+//         else if (item.value === value) {
+//             item.checked = true;
+//         }
+//     });
+// }
