@@ -129,7 +129,7 @@ const unsetSelectedValues = (propertyValue) => {
 const checkForUpdate = () => {
     const employeePayrollJSON = localStorage.getItem('editEmp');
     isUpdate = employeePayrollJSON ? true :false;
-    //if(!isUpdate) return;
+    if(!isUpdate) return;
     employeePayrollObj = JSON.parse(employeePayrollJSON);
     setForm();
 }
