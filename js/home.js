@@ -1,4 +1,5 @@
 let empPayrollList;
+
 window.addEventListener('DOMContentLoaded', (event) => {
     empPayrollList = getEmployeePayrollDataFromStorage();
     document.querySelector(".emp-count").textContent = empPayrollList.length;
@@ -51,20 +52,25 @@ const getDeptHtml = (deptList) => {
     return deptHtml;
 }
 
+//To Remove/Delete Employee Detail Row
 const remove = (node) => {
-    empPayrollList.splice(parseInt(node.id), 1);
-    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    let empPayrollData = empPayrollList.find(empData => empData._id == node.id);
+    console.log(empPayrollData);
+    //if(!empPayrollData) return;
+    const index = empPayrollList.map(empData => empData._id).indexOf(empPayrollData._id);
+    empPayrollList.splice(index,1);
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(empPayrollList));
     document.querySelector(".emp-count").textContent = empPayrollList.length;
+    location.reload(); 
     createInnerHtml();
 }
 
+//To Edit/Update Employee Details
 const update = (node) => {
-    let empPayrollData = empPayrollList.find(empData => empData.id == node.id)
+    console.log(node, empPayrollList);
+    let empPayrollData = empPayrollList.find(empData => empData._id == node.id)
     // if(!employeePayrollData) return;
     localStorage.setItem('editEmp', JSON.stringify(empPayrollData));
+    console.log(empPayrollData);
     window.location.replace(site_properties.employee_payroll_form);
-}
-
-const test = (node) => {
-    alert("called");
 }

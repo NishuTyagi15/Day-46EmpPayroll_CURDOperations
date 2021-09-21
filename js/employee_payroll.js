@@ -1,5 +1,5 @@
 class EmployeePayrollData{
-    // getter and setter method
+    //getter and Setter Method
     get id() {
         return this._id;
     }
@@ -11,7 +11,7 @@ class EmployeePayrollData{
         return this._name;
     }
     set name(name) {
-        let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+        let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\s]{3,}$');
         if(nameRegex.test(name)){
             this._name = name;
         }
@@ -57,17 +57,11 @@ class EmployeePayrollData{
         return this._startDate;
     }
     set startDate(startDate) {
-        let newDate = startDate.getTime();
-        let currentDate = new Date().getTime();
-        if (newDate > currentDate) throw 'Start Date is a Future Date!';
-        var diff = Math.abs(currentDate - newDate);
-        if (diff / (1000 * 3600 * 24) > 30)
-         throw 'Start Date is beyond 30 Days';
         this._startDate = startDate;
     }
 
     toString() {
-        //const options = { year: 'numeric', month:'long', day:'numeric'};
+        //const options = { year: 'numeric', month:'short', day:'numeric'};
         const empDate = !this.startDate ? "undefined" :
                         this.startDate.toLocaleDateString("en-GB");
         return "id=" + this.id + ", name=" + this.name + ", gender=" + this.gender 
