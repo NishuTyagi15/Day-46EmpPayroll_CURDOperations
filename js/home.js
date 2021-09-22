@@ -55,7 +55,6 @@ const getDeptHtml = (deptList) => {
 //To Remove/Delete Employee Detail Row
 const remove = (node) => {
     let empPayrollData = empPayrollList.find(empData => empData._id == node.id);
-    console.log(empPayrollData);
     //if(!empPayrollData) return;
     const index = empPayrollList.map(empData => empData._id).indexOf(empPayrollData._id);
     empPayrollList.splice(index,1);
