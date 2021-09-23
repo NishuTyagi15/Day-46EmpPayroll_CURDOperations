@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/css/new_payroll_form.css">
     <title>Employee Payroll Form</title>
     <script src="/js/employee_payroll.js"></script>
-    <script src="/js/payroll_form.js"></script>        
+    <script src="https://momentjs.com/downloads/moment.js"></script>      
+    <script src="/js/payroll_form.js"></script>  
 </head>
 <body>
     <!--UC 1-->
@@ -88,7 +89,7 @@
                 <label class="label text" for="salary">Choose your salary: </label>
                 <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" 
                     step="100" value="400000" required>
-                <output class="salary-output text" for="salary">400000</output>
+                <output class="salary-output text" for="salary" id="salary-out">400000</output>
             </div>
 
             <!--UC 5-->
@@ -96,15 +97,15 @@
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
                     <select id="day" name="Day" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
+                        <option value="01">1</option>
+                        <option value="02">2</option>
+                        <option value="03">3</option>
+                        <option value="04">4</option>
+                        <option value="05">5</option>
+                        <option value="06">6</option>
+                        <option value="07">7</option>
+                        <option value="08">8</option>
+                        <option value="09">9</option>
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
@@ -131,13 +132,13 @@
                     <select id="month" name="Month" required> 
                         <option value="Jan">January</option>
                         <option value="Feb">Feburary</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
+                        <option value="Mar">March</option>
+                        <option value="Apr">April</option>
                         <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
+                        <option value="Jun">June</option>
+                        <option value="Jul">July</option>
                         <option value="Aug">August</option>
-                        <option value="Sept">September</option>
+                        <option value="Sep">September</option>
                         <option value="Oct">October</option>
                         <option value="Nov">November</option>
                         <option value="Dec">December</option>
